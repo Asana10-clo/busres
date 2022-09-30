@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+
+    <!-- 
+        Sorting and Filtering Section
+     -->
+    <div>
+        <form>
+            <p>Sort by:</p>
+            <label for="price">Price</label>
+            <input id="price" name="price" type="radio" />
+            <label for="departure">Departure</label>
+            <input id="departure" name="departure" type="radio" />
+        </form>
+    </div>
+
+    <!-- 
+        Search Result Items section
+     -->
+    {% for route in query_results %}
+        <div style="border: 1px solid #000; margin: 20px; padding: 10px">
+            <p>Source: {{ route.fromSource }}</p>
+            <p>Departure Time: {{ route.departureTime }}</p>
+            <p>Destination: {{ route.toDestination }}</p>
+            <p>Estimated Arrival Time: {{ route.estimatedArrivalTime }}</p>
+            <p>Fare: GHC{{ route.fare }}</p>
+            <p>Operator: {{ route.operator.operator_name }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

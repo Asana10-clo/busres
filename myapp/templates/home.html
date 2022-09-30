@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="header">
+    <nav>
+        {% load static %}
+        <a href="index.html"><img src="{% static 'images/logo1.jpg' %}">  </a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="station locator.html">STATION LOCATOR</a></li>
+                <li><a href="blog.html">BLOG</a></li>
+                <!--<li><a href="language.html">LANGUAGE</a></li>-->
+                
+                <li><a href="#">MY ACCOUNT</a>
+                   <div class="sub-menu-1">
+                     <ul>
+                         <li><a href="#">Sign Up</a></li>
+                         <li><a href="#">Login</a></li>
+                 
+                     </ul>
+
+                   </div>
+                 </li>
+                <li><div id="google_translate_element"></div></li>
+                <script type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                
+             </ul>
+         </div>
+    </nav>
+
+    <!--
+        Search Section
+    -->
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <div class="search-form">
+            <input class="search-field location" name="from" type="text" placeholder="From">
+            <input class="search-field location" name="to" type="text" placeholder="To">
+            <input class="search-field location" name="departure" type="date" placeholder="Select date">
+            <input class="search-field location" name="return" type="date" placeholder="Select date">
+            <input class="search-field location" name="passengers" type="number" placeholder="Passengers">
+            <button class="search-btn" type="submit">Search</button>
+        </div>
+    </form>
+</section>
+
+
+
+<!--------COURSE------------------>
+<section class="Course">
+    <h1>Plan A Trip With Resa</h1>
+    <p>save yourself some time and money</p>
+
+    <div class="row">
+        <div class="course-col">
+            <h3>Trip Planner</h3>
+            <p>Plan your trip in advance and travel for less.Our platform offers you the chance to compare prices,arrival and destination time to select the best option that fit into your schedule.</p>
+        </div>
+        <div class="course-col">
+         <h3>Get Help</h3>
+         <p>We put our experience and relationships to good use and are available to solve your bus travel issues.Our customer service team is happy to help in every step of the way. </p>
+     </div>
+     <div class="course-col">
+         <h3>Unmatched Benefits</h3>
+         <p>We take care of your travel beyond ticketing by providing you with innovative and unique benefits.</p>
+     </div>
+    </div>
+</section>
+
+<section class="Campus">
+    <h1>Our Partners</h1>
+    <p>We partner with the best transport services to take you to your destination safely and conveniently.</p>
+<div class="row">
+      <div class="campus-col">
+         <img src="{% static 'images/R.jpg' %}" alt="">
+         <div class="layer">
+             <h3>STC coaches</h3>
+
+             </div>
+         </div>
+     
+      <div class="campus-col">
+        <img src="{% static 'images/bus2.jpg' %}" alt="">
+        <div class="layer">
+             <h3>VIP transport services</h3>
+
+         </div>
+      </div>
+      <div class="campus-col">
+         <img src="{% static 'images/bus.jpg' %}" alt="">
+         <div class="layer">
+             <h3>OA bus services</h3>
+             </div>
+         </div>
+</div>
+</section>
+
+
+
+
+<section class="Recommendation">
+    <h1>Book a bus<br> at your own Convenience</h1>
+    <a href="contact.html" class="hero-btn">CONTACT US</a>
+
+</section>
+
+
+<section class="Footer">
+
+ <h3> Select your preferred Payment methods</h3>
+
+  <div class="cards">
+     <a href="mastercard.html"><img src="{% static 'images/mastercard.jpg' %}" alt="mastercard"></a>
+                 
+     <img src="{% static 'images/visa-credit-card.jpg' %}" alt="visa-credit-card">
+
+     <img src="{% static 'images/paypal.jpg' %}" alt="paypal">
+
+     
+
+  </div>
+    <h4>About Us</h4>
+    <p>ReSa is an online bus ticket booking platform that offers an easy-to-use platform<br>Hundreds of bus operators to choose from ,and plenty of offers to make road journeys super-convienent for travelers.<br>Anybody can use the official website of ReSa to book bus tickets from anywhere in Ghana.From the comfort of your home or office or vehicle,you can now make an online booking with ease.</p>
+         <div class="icons">
+             <i class="fa fa-twitter"></i>
+             <i class="fa fa-linkedin"></i>
+             <i class="fa fa-instagram"></i>
+             <i class="fa fa-facebook"></i>
+
+         </div>
+</section>
+
+{% endblock %}
