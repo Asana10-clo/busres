@@ -1,42 +1,51 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 
-{% block content %}
-<section class="header">
-    <nav>
-        {% load static %}
-        <a href="index.html"><img src="{% static 'images/logo1.jpg' %}">  </a>
-        <div class="nav-links" id="navLinks">
-            <i class="fa fa-times" onclick="hideMenu()"></i>
-            
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="station locator.html">STATION LOCATOR</a></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <!--<li><a href="language.html">LANGUAGE</a></li>-->
-                
-                <li><a href="#">MY ACCOUNT</a>
-                   <div class="sub-menu-1">
-                     <ul>
-                         <li><a href="#">Sign Up</a></li>
-                         <li><a href="#">Login</a></li>
-                 
+        <title>Bus Booking Website Design</title>
+        <link rel="stylesheet" href="static/css/style.css">
+        <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+
+        <section class="header">
+            <nav>
+                <a href="index.html"><img src="static/images/logo1.jpg">  </a>
+                <div class="nav-links" id="navLinks">
+                    
+                    
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="station locator.html">STATION LOCATOR</a></li>
+                        <li><a href="blog.html">BLOG</a></li>
+                        <li><a href="#">MY ACCOUNT</a>
+                           <div class="sub-menu-1">
+                             <ul>
+                                 <li><a href="#">Sign Up</a></li>
+                                 <li><a href="#">Login</a></li>
+                         
+                             </ul>
+       
+                           </div>
+                         </li>
+ 
+ 
+                        <li><div id="google_translate_element"></div></li>
+                        <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                        }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        
                      </ul>
-
-                   </div>
-                 </li>
-                <li><div id="google_translate_element"></div></li>
-                <script type="text/javascript">
-                function googleTranslateElementInit() {
-                  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-                }
-                </script>
-                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                
-             </ul>
-         </div>
-    </nav>
-
+                 </div>
+            </nav>
+ 
+            
     <!--
         Search Section
     -->
@@ -81,7 +90,7 @@
     <p>We partner with the best transport services to take you to your destination safely and conveniently.</p>
 <div class="row">
       <div class="campus-col">
-         <img src="{% static 'images/R.jpg' %}" alt="">
+         <img src="static/images/R.jpg" alt="">
          <div class="layer">
              <h3>STC coaches</h3>
 
@@ -89,14 +98,14 @@
          </div>
      
       <div class="campus-col">
-        <img src="{% static 'images/bus2.jpg' %}" alt="">
+        <img src="static/images/bus2.jpg" alt="">
         <div class="layer">
              <h3>VIP transport services</h3>
 
          </div>
       </div>
       <div class="campus-col">
-         <img src="{% static 'images/bus.jpg' %}" alt="">
+         <img src="static/images/bus.jpg" alt="">
          <div class="layer">
              <h3>OA bus services</h3>
              </div>
@@ -119,11 +128,11 @@
  <h3> Select your preferred Payment methods</h3>
 
   <div class="cards">
-     <a href="mastercard.html"><img src="{% static 'images/mastercard.jpg' %}" alt="mastercard"></a>
+     <a href="mastercard.html"><img src="static/images/mastercard.jpg" alt="mastercard"></a>
                  
-     <img src="{% static 'images/visa-credit-card.jpg' %}" alt="visa-credit-card">
+     <img src="static/images/visa-credit-card.jpg" alt="visa-credit-card">
 
-     <img src="{% static 'images/paypal.jpg' %}" alt="paypal">
+     <img src="static/images/paypal.jpg" alt="paypal">
 
      
 
@@ -139,4 +148,15 @@
          </div>
 </section>
 
-{% endblock %}
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function ShowMenu(){
+        navLinks.style.right = "0"
+    };
+    function hideMenu(){
+        navLinks.style.right = "-200px"
+    };
+</script>
+</body>
+</html>

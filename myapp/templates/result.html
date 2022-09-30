@@ -1,13 +1,53 @@
 {% extends 'base.html' %}
-
 {% block content %}
+<section class="header">
+    <nav>
+        {% load static %}
+        <a href="index.html"><img src="{% static 'images/logo1.jpg' %}">  </a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="station locator.html">STATION LOCATOR</a></li>
+                <li><a href="blog.html">BLOG</a></li>
+                <!--<li><a href="language.html">LANGUAGE</a></li>-->
+                <li><div id="google_translate_element"></div></li>
+                <script type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                
+             </ul>
+         </div>
+    </nav>
+    <!--
+        Search Section
+    -->
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <div class="search-form">
+            <input class="search-field location" name="from" type="text" placeholder="From">
+            <input class="search-field location" name="to" type="text" placeholder="To">
+            <input class="search-field location" name="departure" type="date" placeholder="Select date">
+            <input class="search-field location" name="return" type="date" placeholder="Select date">
+            <input class="search-field location" name="passengers" type="number" placeholder="Passengers">
+            <button class="search-btn" type="submit">Search</button>
+        </div>
+    </form>
 
-<div>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- 
         Sorting and Filtering Section
      -->
-    <div>
+     <div>
         <form>
             <p>Sort by:</p>
             <label for="price">Price</label>
@@ -32,4 +72,41 @@
     {% endfor %}
 </div>
 
+
+<section class="Footer">
+
+    <h3> You can pay your tickets with credit cards</h3>
+   
+     <div class="cards">
+        <a href="mastercard.html"><img src="static/images/mastercard.jpg" alt="mastercard"></a>
+                    
+        <img src="static/images/visa-credit-card.jpg" alt="visa-credit-card">
+   
+        <img src="static/images/paypal.jpg" alt="paypal">
+     </div>
+
+     <h4>Follow Us</h4>
+     <p>On all our social media platforms for more information about Bus Bookings</p>
+          <div class="icons">
+              <i class="fa fa-twitter"></i>
+              <i class="fa fa-linkedin"></i>
+              <i class="fa fa-instagram"></i>
+              <i class="fa fa-facebook"></i>
+ 
+          </div>
+     </section>
+
 {% endblock %}
+
+</section>
+
+
+
+
+
+    
+
+
+
+
+    
