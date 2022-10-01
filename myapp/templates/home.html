@@ -4,21 +4,22 @@
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 
         <title>Bus Booking Website Design</title>
-        <link rel="stylesheet" href="static/css/style.css">
+       <link rel="stylesheet" href="static/css/contact.css">
         <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
         
     </head>
     <body>
 
         <section class="header">
             <nav>
-                <a href="index.html"><img src="static/images/logo1.jpg">  </a>
+                <a href="index.html"><img src="static/images/logo1.jpg"></a>
                 <div class="nav-links" id="navLinks">
                     
                     
                     <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="{% url 'index' %}">HOME</a></li>
+                        <li><a href="{% url 'contact' %}">CONTACT</a></li>
                         <li><a href="station locator.html">STATION LOCATOR</a></li>
                         <li><a href="blog.html">BLOG</a></li>
                         <li><a href="#">MY ACCOUNT</a>
@@ -46,9 +47,7 @@
             </nav>
  
             
-    <!--
-        Search Section
-    -->
+    <!--  Search Section-->
     <form action="{% url 'index' %}" method="post">
         {% csrf_token %}
         <div class="search-form">
