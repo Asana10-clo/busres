@@ -29,3 +29,15 @@ def index(request):
     else:
         return render(request, 'home.html')
 
+
+
+def contact(request):
+    return render(request,'contact.html')
+
+
+
+
+
+
+
+

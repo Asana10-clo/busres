@@ -1,7 +1,121 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 
-{% block content %}
+        <title>CONTACT</title>
+        <link rel="stylesheet" href="contact.css">
+        <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
 
-<div>Contact Information</div>
+    <body>
 
-{% endblock %}
+        <section class="header">
+            <nav>
+                <a href="index.html"><img src="images/logo1.jpg">  </a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    "
+                    <ul>
+                        <li><a href="{% url 'index' %}">HOME</a></li>
+                        <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                        <li><a href="station locator.html">STATION LOCATOR</a></li>
+                        <li><a href="blog.html">BLOG</a></li>
+                        <li><a href="language.html">LANGUAGE</a></li>
+                        <li><a href="Account.html">MY ACCOUNT</a>
+                         <ul>
+                             <li><a href="#sign up">sign up</a></li>
+                             <li><a href="login">login</a></li>
+                         </ul>
+                     
+                     </li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="ShowMenu()"></i>
+         
+            </nav>
+
+
+            <form>
+                <div class="search-form">
+
+                    <input type="text" class="search-field location" placeholder="From....">
+                    
+                    </fieldset>
+                    <input type="text" class="search-field destination" placeholder="Enter Destination...">
+                    <input type="date" class="search-field date" placeholder="select date..">
+                    <input type="date" class="search-field return" placeholder="return date..">
+                    <input type="text" class="search-field passenger" placeholder="Passenger type">
+                    <button class="search-btn" type="button">Search</button>
+                </div>
+            
+            </form>
+
+
+
+               
+                    <section>
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Contact Us</legend>
+                        
+                                <label for="fullname">Your Name:</label>
+                                <input type="text" name="Fullname" id="fullName">
+                                <label for="email">Email:</label>
+                                <input type="text" name="email" id="email">
+                                <label for="phone">phone:</label>
+                                <input type="tel" name="phone" id="phone"></label>
+                        
+                                <label for="msg">Your Message:</label>
+                                <textarea name="msg" id="msg"></textarea>
+
+                                <div class="checks">
+                                    <input type="Checkbox" name="copyEmail"
+                                    id="copyEmail">
+                                    <label for="copyEmail">Send copy to my email</label>
+
+                                </div>
+                                <div class="checks">
+                                    <p>Preferred method of contact:</p>
+                                    <input type="radio" name="contact" id="contactTel" value="email">
+                                    <label for="contactEmail">Email</label>
+
+                                    <input type="radio" name="contact"  id="contactTel" value="phone">
+                                    <label for="contactTel">phone call</label>
+
+                                    <input type="radio" name="contact"  id="contactText" value="text">
+                                    <label for="contactText">Text message</label>
+
+                                </div>
+                                <input type="submit" id="submit" value="contact us">
+                            </fieldset>
+                        
+                     </form>   
+                      </section>
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+                <section class="Footer">
+                    <h4>About Us</h4>
+                    <p>ReSa is an online bus ticket booking platform that offers an easy-to-use platform<br>Hundreds of bus operators to choose from ,and plenty of offers to make road journeys super-convienent for travelers.<br>Anybody can use the official website of ReSa to book bus tickets from anywhere in Ghana.From the comfort of your home or office or vehicle,you can now make an online booking with ease.</p>
+                         <div class="icons">
+                             <i class="fa fa-twitter"></i>
+                             <i class="fa fa-linkedin"></i>
+                             <i class="fa fa-instagram"></i>
+                             <i class="fa fa-facebook"></i>
+         
+                         </div>
+               </div>
+            </section>
+      </section> 
+
+    </body>
+
+</html>
