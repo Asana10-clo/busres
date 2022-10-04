@@ -1,7 +1,7 @@
 # BusReZ
 
 ## Using pipenv (optional)
-Pipenv is used to manage python packages just like npm is used for javascript packages.
+Pipenv is used to manage python packages just like npm is used to manage javascript packages.
 
 - First, install pipenv
 ```cmd
@@ -14,7 +14,7 @@ pipenv install
 ```
 
 ## Issues
-[ ] Frontend styling needs improvement
-- especialling the text color inside of the dropdown menu
-[ ] No use for passengers input at the moment
-[ ] Station location has not been implemented
+- [ ] Frontend styling needs improvement
+- Especially the text color inside of the dropdown menu
+- [ ] No use for passengers input at the moment
+- [ ] Station locator has not been implemented
