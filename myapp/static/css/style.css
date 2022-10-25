@@ -1,4 +1,3 @@
-
 *{
     margin:0;
     padding:0;
@@ -18,10 +17,6 @@ nav{
     padding: 2% 6%;
     justify-content: space-between;
     align-items: center;
-    
-    
-    
-
 }
 
 
@@ -78,14 +73,20 @@ ul li ul.dropdown{
   display: none;
 }*/
 
+.dropdown-menu {
+    display: none;
+    
+}
+
+.dropdown:focus .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+    
+}
+
 .nav-links{
     flex: 1;
     text-align: right;
-
-}
-
-.sub-menu-1{
-    display: none;
 }
 .nav-links ul li{
     list-style: none;
@@ -94,7 +95,7 @@ ul li ul.dropdown{
     position: relative;
 }
 .nav-links ul li a{
-    color:white;
+    color:#fff;
     text-decoration: none;
     font-size: 13px;
 }
@@ -114,7 +115,7 @@ ul li ul.dropdown{
 }
 .text-box{
     width: 90%;
-    color: #fff;
+    color: #ffff;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -128,12 +129,13 @@ ul li ul.dropdown{
     margin: 10px 0 40px;
     font-size: 18px;
     color: #fff;
+    
 }
 .hero-btn{
     display: inline-block;
     text-decoration: none;
     position: relative;
-    color: #fff;
+    color:#fff;
     background: transparent;
     padding: 12px 34px;
     border: 1px solid white;
@@ -178,7 +180,8 @@ nav .fa{
 
 nav .fa{
     display: block;
-    color: #fff;
+    /*color:#fff;*/
+    color:#fff;
     margin: 10px;
     font-size: 22px;
     cursor: pointer;
@@ -404,7 +407,4 @@ h3{
     cursor: pointer;
     padding: 18px 0;
 
-}
-.sub-menu-1{
-    display: none;
 }

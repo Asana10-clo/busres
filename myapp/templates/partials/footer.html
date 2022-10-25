@@ -1,0 +1,21 @@
+<footer class="Footer" style="background-color: gray">
+    <h3> Select your preferred Payment methods</h3>
+    <div class="cards">
+        <a href="{% url 'mastercard' %}">
+            {% load static %}
+            <img src="{% static 'images/mastercard.jpg' %}" alt="mastercard">
+        </a>
+        {% load static %}
+        <img src="{% static 'images/visa-credit-card.jpg' %}" alt="visa-credit-card">
+        {% load static %}
+        <img src="{% static 'images/paypal.jpg' %}" alt="paypal">
+    </div>
+    <h4>About Us</h4>
+    <p>ReSa is an online bus ticket booking platform thsat offers an easy-to-use platform<br>Hundreds of bus operators to choose from ,and plenty of offers to make road journeys super-convienent for travelers.<br>Anybody can use the official website of ReSa to book bus tickets from anywhere in Ghana.From the comfort of your home or office or vehicle,you can now make an online booking with ease.</p>
+    <div class="icons">
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-linkedin"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-facebook"></i>
+    </div>
+</footer>

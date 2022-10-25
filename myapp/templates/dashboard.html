@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Dashboard | By Code Info</title>
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="{% static 'images/download.jpg' %}">
+          <span class="nav-item">User</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-menorah"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-comment"></i>
+          <span class="nav-item">Complaint</span>
+        </a></li>
+        <li><a href="{% url 'station_locator' %}">
+          <i class="fas fa-map-pin"></i>
+          <span class="nav-item">Map</span>
+        </a></li>
+        <li><a href="{% url 'home' %}">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Home</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Setting</span>
+        </a></li>
+
+        <li><a href="{% url 'home' %}" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+
+
+    <section class="main">
+      <div class="main-top">
+        <h1>Dashboard</h1>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      <div class="users">
+        <div class="card">
+          <br>
+          <br>
+          <img src="{% static 'images/download.jpg' %}">
+          <h4>UserName</h4>
+          <br>
+          <br>
+          
+          <button><a href="{% url 'profile' %}">Edit Profile</a></button>
+        </div>
+        <div class="card">
+          <img src="{% static 'images/calendar.jpg' %}">
+          <br>
+          <h4>Reschedule Here</h4>
+          <br>
+          <p>Reschedule Ticket at a fee of 15% of the Fare</p>
+          <br>
+          <br>
+          <button>Reschedule Ticket</button>
+        </div>
+        <div class="card">
+          <img src="{% static 'images/cancel.jpg' %}">
+          <h4>Cancel Ticket</h4>
+          <br>
+          <p>Cancel Booking within two days after booking.</p>
+          <br>
+        
+          <button>Cancel</button>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/blog.jpg' %}">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <button>Blogs</button>
+          </div>
+        </div>
+  
+      <section class="attendance">
+        <div class="attendance-list">
+          <h1>Booking List</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Seat No.</th>
+                <th>UserName</th>
+                <th>Departure Time</th>
+                <th>Date</th>
+                <th>Operator</th>
+                <th>Fare</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button>Verify & Accept</button></td>
+              </tr>
+              <tr class="active">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button>Verify & Accept</button></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button>Verify & Accept</button></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button>Verify & Accept</button></td>
+              </tr>
+              <!-- <tr >
+                <td>05</td>
+                <td>Salina</td>
+                <td>Coding</td>
+                <td>03-24-22</td>
+                <td>9:00AM</td>
+                <td>4:00PM</td>
+                <td><button>View</button></td>
+              </tr>
+              <tr >
+                <td>06</td>
+                <td>Tara Smith</td>
+                <td>Testing</td>
+                <td>03-24-22</td>
+                <td>9:00AM</td>
+                <td>4:00PM</td>
+                <td><button>View</button></td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>

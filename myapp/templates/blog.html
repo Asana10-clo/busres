@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/blog.css">
+    <link rel="stylesheet"  href="{% static 'css/blog.css' %}">
     <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -19,7 +20,7 @@
             <div class="dog">
                 <h2>Title Heading</h2>
                 <h5>Title Description ,Sep 24,2022</h5>
-                <img src="images/pic3.jpg" alt="blog"/>
+                <img src="{% static 'images/pic3.jpg' %}" alt="blog"/>
                 <p>Some Text...</p>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem veritatis laboriosam facere corporis laudantium reprehenderit id cumque, tenetur praesentium totam temporibus delectus itaque tempore, voluptatum sit cum repudiandae, quo ducimus.</p>
             </div>
@@ -31,7 +32,7 @@
             <div class="car">
                 <h2>Title Heading</h2>
                 <h5>Title Description ,Sep 24,2022</h5>
-                <img src="images/back1.jpg" alt="blog"/>
+                <img src="{% static 'images/back1.jpg' %}" alt="blog"/>
                 <p>Some Text...</p>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem veritatis laboriosam facere corporis laudantium reprehenderit id cumque, tenetur praesentium totam temporibus delectus itaque tempore, voluptatum sit cum repudiandae, quo ducimus.</p>
 
@@ -45,15 +46,15 @@
         <div class="right-column">
             <div class="card">
                 <h2>About ReSa</h2>
-                <img src="images/bus1.jpg" alt="me"/>
+                <img src="{% static 'images/bus1.jpg' %}" alt="me"/>
                 <p>ReSa is an online bus ticket booking platform that offers an easy-to-use platform ,hundreds of bus operators to choose from ,and plenty of offers to make road journeys super-convienent for travelers.<br>Anybody can use the official website of ReSa to book bus tickets from anywhere in Ghana.From the comfort of your home or office or vehicle,you can now make an online booking with ease</p>
 
             </div>
             <div class="card">
                 <h3>Popular Post</h3>
-                <img src="images/pic1.jpg" alt="popular"/>
-                <img src="images/OIP.jpg" alt="popular"/>
-                <img src="images/R.jpg" alt="popular"/>
+                <img src="{% static 'images/pic1.jpg' %}" alt="popular"/>
+                <img src="{% static 'images/OIP.jpg' %}" alt="popular"/>
+                <img src="{% static 'images/R.jpg' %}" alt="popular"/>
 
 
             </div>
@@ -91,58 +92,37 @@
          </div>
         </div>
     </section>
-    <!--Page Wrapper
-    <div class="page-wrapper">
-        Post Slider
-        <div class="post slider">
-            <h1 class="slider-title">Trending Posts</h1>
-
-            <div class="post wrapper">
-                <div class="post">1</div>
-                <div class="post">2</div>
-                <div class="post">3</div>
-                <div class="post">4</div>
-                <div class="post">5</div>
-            </div>
+    <!--FOOTER-->
+    <div class="footer">
+        <div class="col-1">
+            <h3>USEFUL LINKS</h3>
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Services</a>
+            <a href="#">Blog</a>
 
         </div>
-
-        /Post Slider
-    </div>-->
-
-    <!--Page Wrapper
-    <div class="page-wrapper">
-        Post Slider
-        <div class="post-slider">
-            <h1 class="slider-title">Trending Posts</h1>
-            <div class="post-wrapper">
-                <div class="post">1</div>
-                <div class="post">2</div>
-                <div class="post">3</div>
-                <div class="post">4</div>
-                <div class="post">5</div>
-
-            </div>
-
+        <div class="col-2">
+            <h3>NEWSLETTER</h3>
+            <form>
+                <input type="email" placeholder="Your Email Address" required>
+                <br>
+                <button type="submit">SUBSCRIBE NOW</button>
+            </form>
         </div>
-
-
-        
-
-    </div>
-    
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>-->
-
-    <footer>
-        <h2>Footer</h2>
-        <!--<div class="icons">
+        <div class="col-3">
+           <h3>CONTACT</h3> 
+           <p>P.O.Box 123 <br>XYZ Road Accra</p>
+           <div class="icons">
             <i class="fa fa-twitter"></i>
             <i class="fa fa-linkedin"></i>
             <i class="fa fa-instagram"></i>
             <i class="fa fa-facebook"></i>
 
-        </div>-->
-    </footer>
-    
+        </div>
+        </div>
+    </div>
 </body>
 </html>
+
+

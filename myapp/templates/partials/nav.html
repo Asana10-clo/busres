@@ -1,0 +1,30 @@
+<!-- Navigation Bar -->
+<nav>
+    <a href="{% url 'home' %}">
+        {% load static %}
+        <img src="{% static 'images/logo1.jpg' %}">
+    </a>
+    <div class="nav-links" id="navLinks">
+        <ul>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'contact' %}">CONTACT</a></li>
+            <li><a href="{% url 'station_locator' %}">STATION LOCATOR</a></li>
+            <li><a href="{% url 'blog' %}">BLOG</a></li>
+            <li>
+                <div class="dropdown">
+                    <a style="cursor: pointer">MY ACCOUNT</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="{% url 'signup' %}" style="color:blue; font-size: medium;">Sign Up</a></li>
+                            <li><a href="{% url 'login' %}" style="color:blue; font-size: medium;">Login</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="google_translate_element"></div>
+            </li>
+         </ul>
+     </div>
+</nav>

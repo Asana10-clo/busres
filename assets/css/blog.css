@@ -1,0 +1,153 @@
+body{
+    font-family:sans-serif ;
+    margin: 0;
+    padding: 20px;
+    /*background-color: #f1f1f1;*/
+    background-color: rgba(49, 167, 143, 0.964);
+    /*background-color: #ffffff;*/
+
+}
+*{
+    box-sizing: border-box;
+}
+/*Post Slider*/
+.post-slider{
+    border:1px solid red;
+}
+.post-slider .post-wrapper{
+    width:84%;
+    height:350px;
+    margin:0px auto;
+    border:1px dashed red;
+}
+.post-slider .post-wrapper .post{
+    width:300px;
+    height:350px;
+    display:inline-block;
+    background: #05f7ff;
+}
+
+/*POST SLIDER
+.post-slider{
+    border:1px solid red;
+}
+.post-slider .post-wrapper{
+    width:84%;
+    height: 350px;
+    margin: 0px auto;
+    border:1px dashed red;
+}
+.post-slider .post-wrapper .post{
+    background: #05f7ff;
+    display: inline-block;
+}*/
+.row::after{
+    content: '';
+    display: table;
+    clear:both;
+
+}
+header{
+    background-color:#ffffff;
+    
+    padding:30px;
+
+}
+header h1{
+    text-align: center;
+    font-size:60px;
+    color:#000000;
+    margin:1.5 0px;
+    
+}
+h2{
+    color: #000000;
+    margin:1.5 0px;
+
+}
+.left-column{
+    float:left;
+    width:75%;
+    padding-left:20px ;
+
+}
+.right-column{
+    width: 25%;
+    float:right;
+    padding-left:20px ;
+
+}
+.card{
+    padding:20px;
+    background-color: #ffffffff;
+    margin-top:20px;
+    /*box-shadow: 0 0 20px 0px blue ;*/
+    
+}
+.card img{
+    width:100%;
+}
+.right-column .card img{
+    margin-bottom: 15px;
+
+}
+.car img{
+    width: 80%;
+    
+}
+.dog img{
+    width:80%;
+}
+.Course{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px ;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+.course-col:hover{
+    /*box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2) ;*/
+    box-shadow: 0 0 20px 0px red ;
+}
+.icons .fa{
+    color: blue;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+
+}
+footer{
+    background-color: #dddddd;
+    padding: 20px;
+    text-align: center;
+    margin-top:20px;
+}
+/*.icons .fa{
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+
+}*/
+
+@media(max-width:800px){
+    .left-column,.right-column{
+      width: 100%;  
+      padding: 0px;
+    }
+}

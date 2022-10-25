@@ -1,84 +1,98 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-    <link rel="stylesheet" href="./css/station locator.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/stationloc.css' %}">
     <title>Find your location</title>
 </head>
+
 <body>
+
     <body>
 
 
 
         <section class="header">
             <nav>
-                <a href="index.html"><img src="images/logo1.jpg">  </a>
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo1.jpg' %}"> </a>
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hideMenu()"></i>
-                    "
+
                     <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                        <li><a href="station locator.html">STATION LOCATOR</a></li>
-                        <li><a href="blog.html">BLOG</a></li>
-                        <li><a href="language.html">LANGUAGE</a></li>
-                        <li><a href="Account.html">MY ACCOUNT</a>
-                         <ul>
-                             <li><a href="#sign up">sign up</a></li>
-                             <li><a href="login">login</a></li>
-                         </ul>
-                     
-                     </li>
+                        <li><a href="{% url 'home' %}">HOME</a></li>
+                        <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                        <li><a href="{% url 'station_locator' %}">STATION LOCATOR</a></li>
+                        <li><a href="{% url 'blog' %}">BLOG</a></li>
+                        
+                        <li><div id="google_translate_element"></div></li>
+                        <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                        }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        
+
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="ShowMenu()"></i>
-         
-            
             </nav>
             <br>
             <br>
             <br>
             <br>
             <div class="form-center">
-           <from>
-            <div>
-                <label for="uname">Current Location</label>
-                <input type="text" id="uname" name="name" placeholder="Please Enter Your Current Location"/>
+                <form>
+                    <div>
+                        <label for="uname">Current Location</label>
+                        <input type="text" id="uname" name="name" placeholder="Please Enter Your Current Location" />
 
-                <label for="loc">Your Destination</label>
-                <input type="text" id="loc" name="name" placeholder="Please Enter your Destination"/>
-                    
-            </div>
-            <br>
-            <div>
-                <button>Search</button>
-            </div>
-           </from>
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
+                        <label for="loc">Your Destination</label>
+                        <input type="text" id="loc" name="name" placeholder="Please Enter your Destination" />
 
-         <section class="Footer">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div>
+                        <button type="submit">SEARCH</button>
+                        <!--<button>Search</button>-->
+                    </div>
+                </form>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <section class="Footer">
             <h4>About Us</h4>
-            <p>ReSa is an online bus ticket booking platform that offers an easy-to-use platform<br>Hundreds of bus operators to choose from ,and plenty of offers to make road journeys super-convienent for travelers.<br>Anybody can use the official website of ReSa to book bus tickets from anywhere in Ghana.From the comfort of your home or office or vehicle,you can now make an online booking with ease.</p>
-                 <div class="icons">
-                     <i class="fa fa-twitter"></i>
-                     <i class="fa fa-linkedin"></i>
-                     <i class="fa fa-instagram"></i>
-                     <i class="fa fa-facebook"></i>
- 
-                 </div>
-            </section>
+            <p>ReSa is an online bus ticket booking platform that offers an easy-to-use platform<br>Hundreds of bus
+                operators to choose from ,and plenty of offers to make road journeys super-convienent for
+                travelers.<br>Anybody can use the official website of ReSa to book bus tickets from anywhere in
+                Ghana.From the comfort of your home or office or vehicle,you can now make an online booking with ease.
+            </p>
+            <div class="icons">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-facebook"></i>
 
-</body>
+            </div>
+        </section>
+
+    </body>
+
 </html>

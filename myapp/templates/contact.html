@@ -1,10 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 
         <title>CONTACT</title>
-        <link rel="stylesheet" href="contact.css">
+        
+        <link rel="stylesheet" href="{% static 'css/contact.css' %}">
         <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         
     </head>
@@ -13,20 +15,20 @@
 
         <section class="header">
             <nav>
-                <a href="index.html"><img src="images/logo1.jpg">  </a>
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo1.jpg' %}">  </a>
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hideMenu()"></i>
                     "
                     <ul>
-                        <li><a href="{% url 'index' %}">HOME</a></li>
+                        <li><a href="{% url 'home' %}">HOME</a></li>
                         <li><a href="{% url 'contact' %}">CONTACT</a></li>
-                        <li><a href="station locator.html">STATION LOCATOR</a></li>
+                        <li><a href="{% url 'station_locator' %}">STATION LOCATOR</a></li>
                         <li><a href="blog.html">BLOG</a></li>
                         <li><a href="language.html">LANGUAGE</a></li>
                         <li><a href="Account.html">MY ACCOUNT</a>
                          <ul>
-                             <li><a href="#sign up">sign up</a></li>
-                             <li><a href="login">login</a></li>
+                             <li><a href="#">sign up</a></li>
+                             <li><a href="#">login</a></li>
                          </ul>
                      
                      </li>
