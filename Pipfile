@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 django = "*"
 django-geolocation-fields = "==0.1.8"
+django-user-management = "==18.0.0"
+django-tailwind = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

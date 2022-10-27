@@ -9,7 +9,15 @@ from .blogs import blogs
 from .seat import seat
 from .dashboard import dashboard
 
-
-
-
-__all__ = [home, contact, station_locator,mastercard,confirm,blog, display,blogs,seat,dashboard]
+__all__ = [
+    home,
+    contact,
+    station_locator,
+    mastercard,
+    confirm,
+    blog,
+    display,
+    blogs,
+    seat,
+    dashboard
+]

@@ -15,7 +15,4 @@ urlpatterns = [
 
     # Added lines here
     path('display', views.display, name="display"),
-    
-    
-
 ]

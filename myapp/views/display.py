@@ -1,5 +1,3 @@
-from ast import operator
-from select import select
 from django.shortcuts import render
 #modification
 # from myapp.models import Trip

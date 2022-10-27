@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-from myapp.models.booking import Booking
 from .models import (
     Operator,
     Route,
@@ -10,6 +9,7 @@ from .models import (
     TakeOff,
     Booking,
 )
+
 admin.site.register(Operator)
 admin.site.register(Route)
 admin.site.register(Point)

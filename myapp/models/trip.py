@@ -2,8 +2,6 @@ from datetime import datetime
 from django.db import models
 from .base import BaseModel
 
-
-
 class Trip(BaseModel):
     fare = models.DecimalField(
         decimal_places=2, max_digits=6, null=False, blank=False)

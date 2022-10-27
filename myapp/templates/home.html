@@ -2,58 +2,86 @@
 
 {% block content %}
 
-<header class="header">
+<header class="{% if trips is None %}header{% endif %}">
     {% include 'partials/nav.html' %}
     {% include 'partials/search.html' %}
 </header>
-<section class="Course">
-    <h1>Plan A Trip With Resa</h1>
-    <p>save yourself some time and money</p>
-    <div class="row">
-        <div class="course-col">
-            <h3>Trip Planner</h3>
-            <p>Plan your trip in advance and travel for less.Our platform offers you the chance to compare prices,arrival and destination time to select the best option that fit into your schedule.</p>
-        </div>
-        <div class="course-col">
-            <h3>Get Help</h3>
-            <p>We put our experience and relationships to good use and are available to solve your bus travel issues.Our customer service team is happy to help in every step of the way. </p>
-        </div>
-        <div class="course-col">
-            <h3>Unmatched Benefits</h3>
-            <p>We take care of your travel beyond ticketing by providing you with innovative and unique benefits.</p>
-        </div>
-    </div>
-</section>
-<section class="Campus">
-    <h1>Our Partners</h1>
-    <p>We partner with the best transport services to take you to your destination safely and conveniently.</p>
-    <div class="row">
-        <div class="campus-col">
-            {% load static %}
-            <img src="{% static 'images/R.jpg' %}" alt="">
-            <div class="layer">
-                <h3>STC coaches</h3>
+
+{% if trips is not None %}
+    <ul>
+        {% for trip in trips %}
+            <li class="p-4 m-4">
+                <p>Route: {{trip.route}}</p>
+                <p>Operator: {{trip.operator}}</p>
+                {% if trip.description %}
+                    <p>{{trip.description}}</p>
+                {% endif %}
+                <p>Fare: {{trip.fare}}</p>
+                <p>Time: {{trip.take_off}}</p>
+
+                {% if trip.trip.estimated_arrival_time %}
+                    <p>{{trip.estimated_arrival_time}}</p>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li class="py-30 px-10 text-center">
+                <p>No results</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <section class="Course">
+        <h1>Plan A Trip With Resa</h1>
+        <p>save yourself some time and money</p>
+        <div class="row">
+            <div class="course-col">
+                <h3>Trip Planner</h3>
+                <p>Plan your trip in advance and travel for less.Our platform offers you the chance to compare prices,arrival and destination time to select the best option that fit into your schedule.</p>
+            </div>
+            <div class="course-col">
+                <h3>Get Help</h3>
+                <p>We put our experience and relationships to good use and are available to solve your bus travel issues.Our customer service team is happy to help in every step of the way. </p>
+            </div>
+            <div class="course-col">
+                <h3>Unmatched Benefits</h3>
+                <p>We take care of your travel beyond ticketing by providing you with innovative and unique benefits.</p>
             </div>
         </div>
-        
-        <div class="campus-col">
-            {% load static %}
-            <img src="{% static 'images/bus2.jpg' %}" alt="">
-            <div class="layer">
-                <h3>VIP transport services</h3>
+    </section>
+
+    <section class="Campus">
+        <h1>Our Partners</h1>
+        <p>We partner with the best transport services to take you to your destination safely and conveniently.</p>
+        <div class="row">
+            <div class="campus-col">
+                {% load static %}
+                <img src="{% static 'images/R.jpg' %}" alt="">
+                <div class="layer">
+                    <h3>STC coaches</h3>
+                </div>
+            </div>
+            
+            <div class="campus-col">
+                {% load static %}
+                <img src="{% static 'images/bus2.jpg' %}" alt="">
+                <div class="layer">
+                    <h3>VIP transport services</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                {% load static %}
+                <img src="{% static 'images/bus.jpg' %}" alt="">
+                <div class="layer">
+                    <h3>OA bus services</h3>
+                </div>
             </div>
         </div>
-        <div class="campus-col">
-            {% load static %}
-            <img src="{% static 'images/bus.jpg' %}" alt="">
-            <div class="layer">
-                <h3>OA bus services</h3>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="Recommendation">
-    <h1>Book a bus<br> at your own Convenience</h1>
-    <a href="{% url 'contact' %}" class="hero-btn">CONTACT US</a>
-</section>
+    </section>
+
+    <section class="Recommendation">
+        <h1>Book a bus<br> at your own Convenience</h1>
+        <a href="{% url 'contact' %}" class="hero-btn">CONTACT US</a>
+    </section>
+{% endif %}
+
 {% endblock %}
