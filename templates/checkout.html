@@ -1,0 +1,98 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+
+<section class="py-32">
+    <div class="w-full max-w-sm mx-auto">
+        <div
+            data-fare="{{schedule.trip.fare}}"
+            data-email="{{user.email}}"
+            data-schedule="{{schedule.id}}"
+            id="checkout-form"
+        >
+            <div>
+                <div class="py-5">
+                    Schedule: {{schedule}}
+                </div>
+            </div>
+
+            <div class="hidden text-center text-red-500 bg-red-100 p-2 my-2" id="txn-incomplete">
+                Transaction was not completed!
+            </div>
+            <div class="hidden text-center text-red-500 bg-red-100 p-2 my-2" id="txn-unsuccess">
+                Transaction was unsuccessful.
+            </div>
+
+            <button
+                onClick="payWithPaystack()"
+                type="submit"
+                style="float:right;background-color:rgb(52, 182, 52);border-radius:30px;border: 2px solid #fff;padding: 10px 30px;" id="pay"
+            >
+                Pay
+            </button>
+        </div>
+    
+        <div class="hidden text-center" id="txn-complete">
+            <div class="mb-10">
+                <div class="text-green-500 bg-green-100 p-2 my-2">
+                    Transaction completed!
+                </div>
+            <div></div>
+            <a href="{% url 'dashboard' %}">Go to dashboard</a>
+        </div>
+    </div>
+</section>
+
+{% block scripts %}
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    const paymentForm = document.getElementById('pay');
+    paymentForm.addEventListener('submit', payWithPaystack, false);
+
+    const checkout = document.getElementById('checkout-form')
+    const txnComplete = document.getElementById('txn-complete')
+    const txnIncomplete = document.getElementById('txn-incomplete')
+    const txnUnsuccess = document.getElementById('txn-unsuccess')
+  
+    function payWithPaystack() {
+        var handler = PaystackPop.setup({
+            key: 'pk_test_a3ca8750e4d51c47e4f7999540de04aa6d5c2019',
+            email: checkout.dataset.email,
+            amount: parseFloat(checkout.dataset.fare) * 100,
+            currency: 'GHS',
+            callback: function(response) {
+                if (response.reference && response.status === 'success') {
+                    fetch('/webhook/', {
+                        method: 'POST',
+                        headers: {
+                            "X-CSRFToken": "{{ csrf_token }}",
+                        },
+                        body: JSON.stringify({
+                            reference: response.reference,
+                            schedule: checkout.dataset.schedule
+                        })
+                    }).then((res) => {
+                        if (res.status === 500) {
+                            txnUnsuccess.style.display = 'block';
+                        } else if (res.status === 200) {
+                            checkout.style.display = 'none';
+                            txnComplete.style.display = 'block';
+                        }
+                    }).catch((err) => {
+                        console.log(err)
+                    })
+                } else {
+                    txnUnsuccess.style.display = 'block';
+                }
+            },
+            onClose: function() {
+                txnIncomplete.style.display = 'block'
+            },
+        })
+
+        handler.openIframe();
+    }
+</script>
+{% endblock %}
+
+{% endblock %}

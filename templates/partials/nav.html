@@ -1,0 +1,46 @@
+<!-- Navigation Bar -->
+<nav class="bg-black bg-opacity-80 sticky z-50 top-0 w-full h-[60px]">
+    <div class="mx-auto px-[2%] flex justify-between items-center">
+        <a href="{% url 'index' %}">
+            <div class="bg-brand h-[60px] w-[100px] bg-center bg-cover"></div>
+        </a>
+        <div class="ml-auto">
+            <ul class="navlinks flex justify-end items-center text-white uppercase tracking-wide">
+                <li class="nav-item p-2">
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="{% url 'stationloc' %}">Station Locator</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="{% url 'blog' %}">Blog</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="relative">
+                    <div class="nav-item p-2 cursor-pointer" id="dropdown-trigger">
+                        <span>My Account</span>
+                    </div>
+                    <div
+                        class="hidden absolute right-0 top-10 bg-white w-fit min-w-[120px] rounded-lg px-3 py-2.5"
+                        id="dropdown"
+                    >
+                        <ul class="text-left text-black space-y-2">
+                            {% if user.is_authenticated %}
+                                <li><a class="font-medium" href="{% url 'dashboard' %}">Profile</a></li>
+                                <li><a class="font-medium" href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="font-medium" href="{% url 'login' %}">Login</a></li>
+                                <li><a class="font-medium" href="{% url 'signup' %}">Sign Up</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </li>
+                <!-- <li>
+                    <div id="google_translate_element"></div>
+                </li> -->
+             </ul>
+         </div>
+    </div>
+</nav>

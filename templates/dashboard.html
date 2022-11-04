@@ -1,0 +1,90 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+
+<section class="w-full">
+    <div class="dashboard-container w-full max-w-screen-xl mx-auto px-5 flex justify-between items-center">
+        <nav class="flex-1 h-full min-w-fit border-r">
+            <ul class="flex flex-col py-5 space-y-2 overflow-x-hidden overflow-y-auto">
+                <li class="p-2 uppercase font-semibold">
+                    <a href="{% url 'dashboard' %}">Home</a>
+                </li>
+                <li class="p-2 uppercase font-semibold">
+                    <a href="{% url 'stationloc' %}">Map</a>
+                </li>
+                <li class="p-2 uppercase font-semibold">
+                    <a href="{% url 'dashboard' %}">Settings</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="flex-[5] h-full pb-10" role="main">
+            <div class="w-fit max-w-screen-lg mx-auto px-5">
+                <div class="flex justify-end items-center">
+                    <div class="px-2 py-4">
+                        <span class="font-semibold uppercase">Hello, {{ user.username|default:'Guest' }}</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="mt-10 text-2xl font-bold uppercase leading-none">Booking List</div>
+                    {% if bookings %}
+                        <div class="my-5 w-fit overflow-hidden rounded-xl border border-gray-400">
+                            <table class="overflow-scroll">
+                                <thead>
+                                    <tr class="text-gray-50 bg-gray-400 font-medium text-left tracking-wide">
+                                        <th class="p-4 whitespace-nowrap">Seat No.</th>
+                                        <th class="p-4">From</th>
+                                        <th class="p-4">To</th>
+                                        <th class="p-4 whitespace-nowrap">Travel time</th>
+                                        <th class="p-4">Operator</th>
+                                        <th class="p-4">Fare</th>
+                                        <th class="p-4"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for booking in bookings %}
+                                        <tr class="border-t odd:bg-gray-50">
+                                            <td  class="p-4">#</td>
+                                            <td  class="p-4 whitespace-nowrap">{{ booking.trip.from_point  }}</td>
+                                            <td  class="p-4 whitespace-nowrap">{{ booking.trip.to_point  }}</td>
+                                            <td  class="p-4 whitespace-nowrap">{{ booking.travel_time }}</td>
+                                            <td  class="p-4">{{ booking.trip.operator }}</td>
+                                            <td  class="p-4 whitespace-nowrap">GHC {{ booking.fare }}</td>
+                                            <td  class="p-2">
+                                                <button
+                                                    class="px-3 py-1 text-semibold text-white bg-red-400 rounded-lg hover:bg-red-500"
+                                                    onclick="alert('Cancel booking')"
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="py-10 text-center">
+                            <p>You have made no bookings yet.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+
+<!-- Important styling -->
+<style>
+/* HEIGHT OF NAVBAR = 60px */
+.dashboard-container {
+    height: calc(100vh - 60px) !important;
+    display: flex;
+}
+/* Remove footer */
+main ~ footer {
+    display: none !important;
+}
+</style>
+{% endblock %}

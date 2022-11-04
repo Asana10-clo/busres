@@ -1,0 +1,38 @@
+<!-- Navigation Bar -->
+<nav class="bg-black bg-opacity-80 sticky z-50 top-0 w-full h-[60px]">
+    <div class="mx-auto px-[2%] flex justify-between items-center">
+        <a href="{% url 'home' %}">
+            <div
+                class="h-[60px] w-[100px] bg-center bg-cover"
+                style="background-image: url(../static/images/logo1.jpg)"
+            ></div>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <ul>
+                <li><a class="uppercase" href="{% url 'home' %}">Home</a></li>
+                <li><a class="uppercase" href="{% url 'contact' %}">Contact</a></li>
+                <li><a class="uppercase" href="{% url 'station_locator' %}">Station Locator</a></li>
+                <li><a class="uppercase" href="{% url 'blog' %}">Blog</a></li>
+                <li>
+                    <div class="dropdown">
+                        <span class="uppercase cursor-pointer">My Account</span>
+                        <div class="dropdown-menu">
+                            <ul class="text-left">
+                                {% if user.is_authenticated %}
+                                    <li><a class="font-medium" href="{% url 'logout' %}">Profile</a></li>
+                                    <li><a class="font-medium" href="{% url 'logout' %}">Logout</a></li>
+                                {% else %}
+                                    <li><a class="font-medium" href="{% url 'signup' %}">Sign Up</a></li>
+                                    <li><a class="font-medium" href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!-- <li>
+                    <div id="google_translate_element"></div>
+                </li> -->
+             </ul>
+         </div>
+    </div>
+</nav>

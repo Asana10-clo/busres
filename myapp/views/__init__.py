@@ -1,23 +1,20 @@
-from .home import home
-from .contact import contact
-from .station_locator import station_locator
-from .mastercard import mastercard
-from .confirm import confirm
-from .blog import blog
-from .display import display
-from .blogs import blogs
-from .seat import seat
-from .dashboard import dashboard
+from .index import index
+from .checkout import checkout, webhook
+from .others import (
+    stationloc,
+    contact,
+    blog,
+    blog_post
+)
 
 __all__ = [
-    home,
+    index,
+    checkout,
+    webhook,
+    stationloc,
     contact,
-    station_locator,
-    mastercard,
-    confirm,
     blog,
-    display,
-    blogs,
-    seat,
-    dashboard
+    blog_post,
+    # seat,
+    # mastercard,
 ]

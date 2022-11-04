@@ -1,46 +1,4 @@
-body{
-    font-family:sans-serif ;
-    margin: 0;
-    padding: 20px;
-    /*background-color: #f1f1f1;*/
-    background-color: rgba(49, 167, 143, 0.964);
-    /*background-color: #ffffff;*/
 
-}
-*{
-    box-sizing: border-box;
-}
-/*Post Slider*/
-.post-slider{
-    border:1px solid red;
-}
-.post-slider .post-wrapper{
-    width:84%;
-    height:350px;
-    margin:0px auto;
-    border:1px dashed red;
-}
-.post-slider .post-wrapper .post{
-    width:300px;
-    height:350px;
-    display:inline-block;
-    background: #05f7ff;
-}
-
-/*POST SLIDER
-.post-slider{
-    border:1px solid red;
-}
-.post-slider .post-wrapper{
-    width:84%;
-    height: 350px;
-    margin: 0px auto;
-    border:1px dashed red;
-}
-.post-slider .post-wrapper .post{
-    background: #05f7ff;
-    display: inline-block;
-}*/
 .row::after{
     content: '';
     display: table;
@@ -124,27 +82,63 @@ h2{
     /*box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2) ;*/
     box-shadow: 0 0 20px 0px red ;
 }
-.icons .fa{
-    color: blue;
-    margin: 0 13px;
-    cursor: pointer;
-    padding: 18px 0;
+.footer{
+    margin-top:150px ;
+    width: 100%;
+    padding: 100px 15%;
+    background: #333;
+    color: #efefef;
+    display:flex;
+}
+.footer div{
+    text-align: center;
 
 }
-footer{
-    background-color: #dddddd;
-    padding: 20px;
-    text-align: center;
-    margin-top:20px;
+.col-2{
+    flex-grow: 2;
 }
-/*.icons .fa{
+.footer div h3{
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+.col-1 a{
+    display: block;
+    text-decoration: none;
+    color:#efefef;
+    margin-bottom: 10px;
+
+
+}
+form input{
+    width: 400px;
+    height: 45px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    outline: none;
+    border: none;
+
+
+}
+form button{
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 30px; 
+    font: size 15px;
+    cursor: pointer;
+
+}
+.icons .fa{
     color: #f44336;
     margin: 0 13px;
     cursor: pointer;
     padding: 18px 0;
 
-}*/
-
+}
 @media(max-width:800px){
     .left-column,.right-column{
       width: 100%;  

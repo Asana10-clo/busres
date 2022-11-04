@@ -1,0 +1,30 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}| Find your location{% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/stationloc.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form-center">
+    <form>
+        <div>
+            <label for="uname">Current Location</label>
+            <input type="text" id="uname" name="name" placeholder="Please Enter Your Current Location" />
+
+            <label for="loc">Your Destination</label>
+            <input type="text" id="loc" name="name" placeholder="Please Enter your Destination" />
+
+        </div>
+
+        <div>
+            <button type="submit">SEARCH</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}| Contact{% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="w-full max-w-fit mx-auto">
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Contact Us</legend>
+        
+                <label for="fullname">Your Name:</label>
+                <input type="text" name="Fullname" id="fullName">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email">
+                <label for="phone">phone:</label>
+                <input type="tel" name="phone" id="phone"></label>
+        
+                <label for="msg">Your Message:</label>
+                <textarea name="msg" id="msg"></textarea>
+    
+                <div class="checks">
+                    <input type="Checkbox" name="copyEmail"
+                    id="copyEmail">
+                    <label for="copyEmail">Send copy to my email</label>
+    
+                </div>
+                <div class="checks">
+                    <p>Preferred method of contact:</p>
+                    <input type="radio" name="contact" id="contactTel" value="email">
+                    <label for="contactEmail">Email</label>
+    
+                    <input type="radio" name="contact"  id="contactTel" value="phone">
+                    <label for="contactTel">phone call</label>
+    
+                    <input type="radio" name="contact"  id="contactText" value="text">
+                    <label for="contactText">Text message</label>
+    
+                </div>
+                <input type="submit" id="submit" value="contact us">
+            </fieldset>
+        </form>   
+    </div>
+</section>
+
+{% endblock %}

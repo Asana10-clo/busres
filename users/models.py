@@ -1,5 +1,8 @@
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from user_management.models.mixins import ActiveUserMixin
+from django.db import models
+from django.contrib.auth import get_user_model, models
 
-class User(ActiveUserMixin, PermissionsMixin, AbstractBaseUser):
+class User(models.AbstractUser):
     pass
+
+    def __str__(self):
+        return self.email

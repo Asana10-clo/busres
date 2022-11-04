@@ -1,19 +1,8 @@
 from django.contrib import admin
-
-from .models import (
-    Operator,
-    Route,
-    Point,
-    Trip,
-    TripSchedule,
-    TakeOff,
-    Booking,
-)
+from .models import Operator, Booking, Schedule, Trip, Point
 
 admin.site.register(Operator)
-admin.site.register(Route)
-admin.site.register(Point)
+admin.site.register(Schedule)
 admin.site.register(Trip)
-admin.site.register(TripSchedule)
-admin.site.register(TakeOff)
+admin.site.register(Point)
 admin.site.register(Booking)

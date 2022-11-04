@@ -1,41 +1,47 @@
-from datetime import datetime
 from django.db import models
-from .base import BaseModel
+from django.core.exceptions import ValidationError
+from geolocation_fields.models import fields as geo
+from .base import AbstractBaseModel
 
-class Trip(BaseModel):
-    fare = models.DecimalField(
-        decimal_places=2, max_digits=6, null=False, blank=False)
-    description = models.TextField(null=True, blank=True)
-    operator = models.ForeignKey(
-        'Operator', related_name='trips', on_delete=models.CASCADE)
-    route = models.ForeignKey(
-        'Route', related_name='trips', on_delete=models.CASCADE)
-    take_off = models.ForeignKey(
-        'TakeOff', related_name='takeoff', on_delete=models.CASCADE, null=True)
 
-    # @property
-    # def estimated_arrival_time(self):
-    #     if (self.route.duration is None):
-    #         return None
-    #     return self.time + self.route.duration
+class Schedule(AbstractBaseModel):
+    trip = models.ForeignKey('Trip', related_name='schedules', on_delete=models.CASCADE)
+    datetime = models.DateTimeField(blank=False, null=False)
+    seats_total = models.PositiveIntegerField(blank=True, null=True)
+    seats_booked = models.PositiveIntegerField(blank=True, null=True)
 
     def __str__(self):
-        return '{} {}'.format(self.route, self.operator)
+        return 'Schedule - {}'.format(self.datetime)
 
 
-class TripSchedule(BaseModel):
-    date = models.DateField(blank=False, null=False)
-    trip = models.ForeignKey(
-        'Trip', related_name='schedules', on_delete=models.CASCADE)
+class Trip(AbstractBaseModel):
+    from_point = models.ForeignKey('Point', related_name='from_point', on_delete=models.RESTRICT)
+    to_point = models.ForeignKey('Point', related_name='to_point', on_delete=models.RESTRICT)
+    fare = models.DecimalField(decimal_places=2, max_digits=6, null=False, blank=False)
+    operator = models.ForeignKey('Operator', related_name='trips', on_delete=models.CASCADE)
+
+    # class Meta:
+    #     unique_together = (('from_point', 'to_point', 'operator'))
+
+    def clean(self):
+        # Ensure from_point and to_point are distinct
+        if (self.from_point is self.to_point):
+            raise ValidationError("From point and To point must be distinct")
+
+        super(Trip, self).clean()
 
     def __str__(self):
-        return '{} {}'.format(self.trip, self.date)
+        return '{} - {} {}'.format(
+            self.from_point,
+            self.to_point,
+            self.operator
+        )
 
 
-class TakeOff(BaseModel):
-    time = models.TimeField(blank=False, null=False)
-    date = models.DateField(blank=False, null=False, default=datetime.now())
-    # trip = models.ForeignKey('Trip', related_name='take_offs', on_delete=models.CASCADE)
+class Point(AbstractBaseModel):
+    name = models.CharField(max_length=60, blank=False, null=False, unique=True)
+    point = geo.PointField(verbose_name='point', unique=True)
+    city = models.CharField(max_length=60, null=True, blank=True)
 
     def __str__(self):
-        return '{}'.format(self.time)
+        return self.name

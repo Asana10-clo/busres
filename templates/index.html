@@ -1,0 +1,59 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<header class="w-full pt-[60px] {% if schedules is None %}-mt-[60px] min-h-screen bg-hero bg-center bg-cover{% endif %}">
+    <div class="overflow-hidden {% if schedules is None %}mt-[11%]{% endif %}">
+        <div class="max-w-[920px] px-5 mx-auto">
+            <div class="bg-gray-200 bg-opacity-80 pt-2 pb-2 rounded-xl">
+                {% include 'partials/search-form.html' %}
+            </div>
+        </div>
+    </div>
+</header>
+
+{% if schedules is None %}
+    {% include 'partials/landing.html' %}
+{% else %}
+    <!-- Search Results -->
+    <section>
+        <div class="max-w-[920px] px-5 mx-auto">
+            <ul class="py-10">
+                {% for schedule in schedules %}
+                    <li>
+                        <div class="bg-gray-200 mb-5 rounded-xl">
+                            <div class="px-4 py-2.5 flex gap-5 flex-wrap justify-between items-center">
+                                <div>
+                                    <div class="opacity-80">Take Off</div>
+                                    <div class="font-semibold">{{schedule.datetime|time:"H:i a"}}</div>
+                                </div>
+                                <div>
+                                    <div class="opacity-80">Fare</div>
+                                    <div class="font-semibold">GHC {{schedule.trip.fare}}</div>
+                                </div>
+                                <div>
+                                    <div class="opacity-80">Seats Remaining</div>
+                                    <div class="font-semibold">n/a</div>
+                                </div>
+                                <div>
+                                    <a href="{% url 'checkout' schedule.id %}">
+                                        Book &rarr;
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="px-4 pb-1.5 border-t border-gray-300">
+                                <small class="opacity-80">Operator&nbsp;</small>
+                                <small class="font-semibold">{{schedule.trip.operator}}</small>
+                            </div>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class="p-5 text-center">
+                        <p>No results</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endif %}
+
+{% endblock %}

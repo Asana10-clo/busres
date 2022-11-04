@@ -1,0 +1,37 @@
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BusRez {% block title %}| Home{% endblock %}</title>
+        <!-- styles -->
+        {% tailwind_css %}
+        <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        <div class="relative min-h-screen w-full flex flex-col">
+            {% include 'partials/nav.html' %}
+            <main class="flex-1">
+                {% block content %}{% endblock %}
+            </main>
+            {% include 'partials/footer.html' %}
+        </div>
+
+        <script src="{% static 'js/main.js' %}"></script>
+
+        <!-- <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script> -->
+
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
